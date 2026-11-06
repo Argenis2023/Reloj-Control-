@@ -1,0 +1,28 @@
+.back-link { display: inline-block; margin-bottom: 8px; font-size: 15px; }
+.ficha__title { margin-top: 0; }
+
+.ficha { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.ficha__main { flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.ficha__side { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+
+.ficha__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ficha__h2 { font-size: 20px; }
+.ficha__row { display: flex; flex-wrap: wrap; gap: 16px; }
+.ficha__grow { flex: 1 1 200px; }
+
+.ficha__state { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ficha__state-label { font-weight: 700; }
+.ficha__toggle { border: 0; background: none; padding: 0; }
+.ficha__hint { font-size: 14px; line-height: 1.5; }
+.ficha__ok { font-size: 14px; color: var(--chip-green-fg); background: var(--chip-green-bg); border-radius: var(--radius-sm); padding: 10px 12px; }
+
+.ficha__actions { display: flex; gap: 12px; }

@@ -1,0 +1,27 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.field__control {
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 16px;
+  background: #fff;
+  color: var(--color-text);
+}
+
+.field__control--area {
+  height: auto;
+  padding: 12px 14px;
+  resize: none;
+}

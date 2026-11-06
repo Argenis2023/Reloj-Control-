@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Marcación en tablet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:disabled{cursor:not-allowed}
+button:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 1180px; height: 820px; box-sizing: border-box; display: flex; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<aside style="width: 400px; box-sizing: border-box; padding: 48px; display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF; background: {{brand}}">
+<div style="display: flex; align-items: center; gap: 14px">
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M6 22 L24 7 L42 22"></path>
+<path d="M11 19 V40 H37 V19"></path>
+<path d="M20 40 V28 H28 V40"></path>
+</svg>
+<div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px; line-height: 1.2">Hogar y Deco Ideas</div>
+<div style="font-size: 14px; opacity: 0.85">Control de asistencia</div>
+</div>
+</div>
+
+<div>
+<div style="display: flex; align-items: baseline; gap: 10px">
+<span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 104px; line-height: 1; letter-spacing: -2px">{{clock}}</span>
+<span style="font-family: 'Sora', sans-serif; font-weight: 500; font-size: 32px; opacity: 0.8">{{seconds}}</span>
+</div>
+<div style="margin-top: 14px; font-size: 22px; font-weight: 600">{{dateText}}</div>
+</div>
+
+<div style="font-size: 15px; line-height: 1.5; opacity: 0.9">Equipo compartido de la oficina central. Hora de Chile continental.</div>
+</aside>
+
+<main style="flex: 1; box-sizing: border-box; padding: 48px 56px; display: flex; flex-direction: column; gap: 24px; min-width: 0">
+
+<sc-if value="{{isId}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 22px; flex: 1">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 36px">Identifícate para marcar</h1>
+<p style="margin: 8px 0 0; font-size: 18px; color: #3F514D">Ingresa tu código personal y tu PIN de 4 dígitos.</p>
+</div>
+<div style="display: flex; gap: 16px">
+<button type="button" onClick="{{focusCode}}" aria-pressed="{{codeActive}}" style="flex: 1; box-sizing: border-box; text-align: left; padding: 12px 20px; border-radius: 16px; background: #FFFFFF; color: #16211F; min-height: 84px; {{codeStyle}}">
+<span style="display: block; font-size: 14px; font-weight: 600; color: #3F514D">Código personal</span>
+<span style="display: block; margin-top: 4px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 6px; min-height: 38px">{{codeText}}</span>
+</button>
+<button type="button" onClick="{{focusPin}}" aria-pressed="{{pinActive}}" style="flex: 1; box-sizing: border-box; text-align: left; padding: 12px 20px; border-radius: 16px; background: #FFFFFF; color: #16211F; min-height: 84px; {{pinStyle}}">
+<span style="display: block; font-size: 14px; font-weight: 600; color: #3F514D">PIN</span>
+<span style="display: block; margin-top: 4px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 30px; letter-spacing: 6px; min-height: 38px">{{pinText}}</span>
+</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{keys}}" as="k" hint-placeholder-count="12">
+<button type="button" onClick="{{k.press}}" aria-label="{{k.aria}}" style="height: 76px; border-radius: 16px; border: 1px solid #C6D1CD; background: #FFFFFF; color: #16211F; font-family: 'Sora', sans-serif; font-weight: 500; font-size: {{k.size}}">{{k.label}}</button>
+</sc-for>
+</div>
+<button type="button" onClick="{{submit}}" disabled="{{cantSubmit}}" style="height: 72px; border-radius: 16px; border: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; {{submitStyle}}">Continuar</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isActions}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 22px; flex: 1">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 36px">Hola, María Pérez</h1>
+<p style="margin: 8px 0 0; font-size: 18px; color: #3F514D">Elige la marca que quieres registrar.</p>
+</div>
+<span style="padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 16px; white-space: nowrap; {{statusStyle}}">{{statusLabel}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{actions}}" as="a" hint-placeholder-count="4">
+<button type="button" onClick="{{a.press}}" style="box-sizing: border-box; height: 148px; border-radius: 20px; padding: 20px 24px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; {{a.style}}">
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<sc-if value="{{a.isEntrada}}" hint-placeholder-val="{{false}}"><path d="M4 17 H22 M15 10 L22 17 L15 24 M28 6 V28"></path></sc-if>
+<sc-if value="{{a.isSalida}}" hint-placeholder-val="{{false}}"><path d="M30 17 H12 M19 10 L12 17 L19 24 M6 6 V28"></path></sc-if>
+<sc-if value="{{a.isInicio}}" hint-placeholder-val="{{false}}"><path d="M11 7 V27 M23 7 V27"></path></sc-if>
+<sc-if value="{{a.isFin}}" hint-placeholder-val="{{false}}"><path d="M10 6 L28 17 L10 28 Z"></path></sc-if>
+</svg>
+<span>
+<span style="display: block; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 26px">{{a.label}}</span>
+<span style="display: block; margin-top: 4px; font-size: 16px; opacity: 0.9">{{a.sub}}</span>
+</span>
+</button>
+</sc-for>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 16px 20px">
+<div style="font-weight: 700; font-size: 16px; margin-bottom: 8px">Tus marcas de hoy</div>
+<sc-if value="{{hasMarks}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{recent}}" as="m" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; font-size: 16px"><span>{{m.label}}</span><span style="font-family: 'Sora', sans-serif; font-weight: 600">{{m.time}}</span></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{noMarks}}" hint-placeholder-val="{{true}}">
+<div style="font-size: 16px; color: #3F514D">Aún no hay marcas registradas hoy.</div>
+</sc-if>
+</div>
+<button type="button" onClick="{{cancel}}" style="align-self: flex-start; height: 52px; padding: 0 28px; border-radius: 14px; border: 1px solid #A9B8B3; background: transparent; color: #16211F; font-weight: 700; font-size: 17px">Cancelar y salir</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isWarn}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center">
+<div style="background: #FFF4DC; border: 2px solid #E8A33D; border-radius: 24px; padding: 36px">
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#7A4A00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M24 6 L44 40 H4 Z"></path>
+<path d="M24 19 V29 M24 34 V35"></path>
+</svg>
+<h1 style="margin: 16px 0 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px; color: #3A2500">Esta marca no corresponde</h1>
+<p style="margin: 12px 0 0; font-size: 20px; line-height: 1.5; color: #3A2500">{{warnText}}</p>
+</div>
+<div style="display: flex; gap: 16px">
+<button type="button" onClick="{{warnCancel}}" style="flex: 1; height: 76px; border-radius: 16px; border: 0; background: {{brand}}; color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 21px">Volver y corregir</button>
+<button type="button" onClick="{{warnConfirm}}" style="flex: 1; height: 76px; border-radius: 16px; border: 2px solid #7A4A00; background: #FFFFFF; color: #3A2500; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 21px">Registrar de todos modos</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isDone}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; align-items: center; text-align: center">
+<div style="width: 120px; height: 120px; border-radius: 60px; background: #D8F0E2; display: flex; align-items: center; justify-content: center">
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#0B6B3A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M14 33 L27 46 L51 20"></path>
+</svg>
+</div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 38px">{{doneTitle}}</h1>
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 40px; min-width: 460px; display: flex; flex-direction: column; gap: 10px; font-size: 19px">
+<div style="display: flex; justify-content: space-between; gap: 32px"><span style="color: #3F514D">Trabajador</span><strong>María Pérez</strong></div>
+<div style="display: flex; justify-content: space-between; gap: 32px"><span style="color: #3F514D">Fecha</span><strong>{{doneDate}}</strong></div>
+<div style="display: flex; justify-content: space-between; gap: 32px"><span style="color: #3F514D">Hora</span><strong>{{doneTime}}</strong></div>
+<div style="display: flex; justify-content: space-between; gap: 32px"><span style="color: #3F514D">Comprobante</span><strong>{{doneReceipt}}</strong></div>
+</div>
+<div style="font-size: 17px; color: #3F514D">Esta pantalla se cerrará en {{countdown}} s.</div>
+<button type="button" onClick="{{finish}}" style="height: 68px; padding: 0 56px; border-radius: 16px; border: 0; background: {{brand}}; color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 21px">Listo</button>
+</div>
+</sc-if>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#0F6B5F"},"autoClose":{"editor":"int","default":8,"min":3,"max":30,"unit":"s"},"$preview":{"width":1180,"height":820}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      now: Date.now(), screen: 'id', code: '', pin: '', focus: 'code',
+      status: 'out', marks: [], receipt: 123, pending: null, last: null, countdown: 8
+    };
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  tick() {
+    const s = this.state;
+    const upd = { now: Date.now() };
+    if (s.screen === 'done') {
+      const c = s.countdown - 1;
+      if (c <= 0) {
+        Object.assign(upd, this.resetFields());
+      } else {
+        upd.countdown = c;
+      }
+    }
+    this.setState(upd);
+  }
+
+  resetFields() {
+    return { screen: 'id', code: '', pin: '', focus: 'code', pending: null, last: null };
+  }
+
+  hhmm(ms) {
+    return new Intl.DateTimeFormat('es-CL', { timeZone: 'America/Santiago', hourCycle: 'h23', hour: '2-digit', minute: '2-digit' }).format(new Date(ms));
+  }
+
+  dateLong(ms) {
+    const t = new Intl.DateTimeFormat('es-CL', { timeZone: 'America/Santiago', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(ms));
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  }
+
+  press(d) {
+    const s = this.state;
+    if (s.focus === 'code') {
+      if (s.code.length < 4) {
+        const code = s.code + d;
+        this.setState({ code: code, focus: code.length === 4 ? 'pin' : 'code' });
+      }
+    } else if (s.pin.length < 4) {
+      this.setState({ pin: s.pin + d });
+    }
+  }
+
+  del() {
+    const s = this.state;
+    if (s.focus === 'pin' && s.pin.length > 0) {
+      this.setState({ pin: s.pin.slice(0, -1) });
+    } else if (s.code.length > 0) {
+      this.setState({ code: s.code.slice(0, -1), focus: 'code' });
+    }
+  }
+
+  record(def) {
+    const s = this.state;
+    const n = s.receipt + 1;
+    const time = this.hhmm(Date.now());
+    this.setState({
+      screen: 'done', status: def.next, pending: null,
+      marks: s.marks.concat([{ label: def.label, time: time }]),
+      receipt: n,
+      last: { title: def.done, time: time, date: this.dateLong(Date.now()), n: n },
+      countdown: this.props.autoClose ?? 8
+    });
+  }
+
+  statusLabel(st) {
+    return st === 'in' ? 'En jornada' : st === 'lunch' ? 'En colación' : 'Fuera de jornada';
+  }
+
+  renderVals() {
+    const s = this.state;
+    const brand = this.props.brand ?? '#0F6B5F';
+    const d = new Date(s.now);
+    const clock = this.hhmm(s.now);
+    const seconds = new Intl.DateTimeFormat('es-CL', { timeZone: 'America/Santiago', second: '2-digit' }).format(d);
+
+    const keyLabels = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const keys = keyLabels.map((l) => ({ label: l, aria: l, size: '32px', press: () => this.press(l) }));
+    keys.push({ label: 'Borrar', aria: 'Borrar último dígito', size: '20px', press: () => this.del() });
+    keys.push({ label: '0', aria: '0', size: '32px', press: () => this.press('0') });
+    keys.push({ label: 'Limpiar', aria: 'Limpiar todo', size: '20px', press: () => this.setState({ code: '', pin: '', focus: 'code' }) });
+
+    const ok = s.code.length === 4 && s.pin.length === 4;
+    const activeBorder = 'border: 3px solid ' + brand + ';';
+    const idleBorder = 'border: 1px solid #A9B8B3;';
+
+    const defs = [
+      { key: 'entrada', label: 'Entrada', sub: 'Inicio de jornada', ok: s.status === 'out', next: 'in', done: 'Entrada registrada' },
+      { key: 'inicio', label: 'Salida a colación', sub: 'Inicio de colación', ok: s.status === 'in', next: 'lunch', done: 'Salida a colación registrada' },
+      { key: 'fin', label: 'Regreso de colación', sub: 'Término de colación', ok: s.status === 'lunch', next: 'in', done: 'Regreso de colación registrado' },
+      { key: 'salida', label: 'Salida', sub: 'Término de jornada', ok: s.status === 'in', next: 'out', done: 'Salida registrada' }
+    ];
+    const actions = defs.map((def) => ({
+      label: def.label,
+      sub: def.sub,
+      isEntrada: def.key === 'entrada',
+      isSalida: def.key === 'salida',
+      isInicio: def.key === 'inicio',
+      isFin: def.key === 'fin',
+      style: def.ok
+        ? 'border: 0; background: ' + brand + '; color: #FFFFFF;'
+        : 'border: 2px dashed #8DA19B; background: #FFFFFF; color: #3F514D;',
+      press: () => {
+        if (def.ok) {
+          this.record(def);
+        } else {
+          this.setState({ screen: 'warn', pending: def });
+        }
+      }
+    }));
+
+    const stMap = {
+      out: 'background: #E1E8E5; color: #33433F;',
+      in: 'background: #D8F0E2; color: #0B5A31;',
+      lunch: 'background: #FBE9C8; color: #6B4200;'
+    };
+
+    const recent = s.marks.slice(-4).reverse();
+    const pend = s.pending;
+    const warnText = pend
+      ? 'Registraste "' + pend.label + '" pero tu estado actual es "' + this.statusLabel(s.status) + '". Revisa la marca antes de continuar; si la registras, quedará anotada con este aviso.'
+      : '';
+    const last = s.last || { title: '', time: '', date: '', n: 0 };
+
+    return {
+      brand: brand,
+      clock: clock,
+      seconds: seconds,
+      dateText: this.dateLong(s.now),
+      isId: s.screen === 'id',
+      isActions: s.screen === 'actions',
+      isWarn: s.screen === 'warn',
+      isDone: s.screen === 'done',
+      keys: keys,
+      codeText: s.code,
+      pinText: '•'.repeat(s.pin.length),
+      codeActive: s.focus === 'code',
+      pinActive: s.focus === 'pin',
+      codeStyle: s.focus === 'code' ? activeBorder : idleBorder,
+      pinStyle: s.focus === 'pin' ? activeBorder : idleBorder,
+      focusCode: () => this.setState({ focus: 'code' }),
+      focusPin: () => this.setState({ focus: 'pin' }),
+      cantSubmit: !ok,
+      submitStyle: ok ? 'background: ' + brand + '; color: #FFFFFF;' : 'background: #D5DEDB; color: #4A5B57;',
+      submit: () => { if (ok) this.setState({ screen: 'actions' }); },
+      actions: actions,
+      statusLabel: this.statusLabel(s.status),
+      statusStyle: stMap[s.status],
+      recent: recent,
+      hasMarks: s.marks.length > 0,
+      noMarks: s.marks.length === 0,
+      cancel: () => this.setState(this.resetFields()),
+      warnText: warnText,
+      warnCancel: () => this.setState({ screen: 'actions', pending: null }),
+      warnConfirm: () => { if (pend) this.record(pend); },
+      doneTitle: last.title,
+      doneDate: last.date,
+      doneTime: last.time,
+      doneReceipt: 'N° ' + String(last.n).padStart(6, '0'),
+      countdown: s.countdown,
+      finish: () => this.setState(this.resetFields())
+    };
+  }
+}
+</script>
+</body>
+</html>

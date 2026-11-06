@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Historial del trabajador</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 940px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Control de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Marcar</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Mi historial</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Solicitudes</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">María Pérez</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Mi historial de asistencia</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Revisa tus marcas, tus horas trabajadas y las diferencias con tu horario. Datos de ejemplo.</p>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="desde" style="font-weight: 700; font-size: 14px">Desde</label><input id="desde" type="text" value="05/10/2026" style="height: 48px; width: 160px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="hasta" style="font-weight: 700; font-size: 14px">Hasta</label><input id="hasta" type="text" value="12/10/2026" style="height: 48px; width: 160px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<button type="button" style="height: 48px; padding: 0 24px; border-radius: 10px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 16px">Filtrar</button>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto">
+<button type="button" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #A9B8B3; background: #FFFFFF; color: #16211F; font-weight: 600; font-size: 14px">Esta semana</button>
+<button type="button" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #A9B8B3; background: #FFFFFF; color: #16211F; font-weight: 600; font-size: 14px">Este mes</button>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 18px 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Horas de jornadas completas</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 28px; margin-top: 4px">39 h 25 min</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 18px 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Atrasos</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 28px; margin-top: 4px">1</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 18px 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Salidas anticipadas</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 28px; margin-top: 4px">1</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 18px 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Ausencias</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 28px; margin-top: 4px">0</div></div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 8px 24px 16px; overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 860px">
+<thead>
+<tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Fecha</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Entrada</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Salida a colación</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Regreso</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Salida</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Horas</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Estado</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Lun 12/10</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08:01</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:02</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:58</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; color: #3F514D">Sin marca</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; color: #3F514D">En curso</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #E1E8E5; color: #33433F">En jornada</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Sin acciones</td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Vie 09/10</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08:02</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:01</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">14:02</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">17:04</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">8 h 01 min</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Puntual</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700">Solicitar corrección</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Jue 08/10</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">14:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">16:30</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">7 h 30 min</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FDE3D0; color: #7A3300">Salida anticipada</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700">Solicitar corrección</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Mié 07/10</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08:14</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:05</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">14:03</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">7 h 48 min</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FBE9C8; color: #6B4200">Atraso</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700">Solicitar corrección</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Mar 06/10</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">07:58</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">13:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">14:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">17:01</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">8 h 03 min</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Puntual</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700">Solicitar corrección</a></td></tr>
+<tr><td style="padding: 14px 8px; font-weight: 700">Lun 05/10</td><td style="padding: 14px 8px">08:01</td><td style="padding: 14px 8px">13:02</td><td style="padding: 14px 8px">14:01</td><td style="padding: 14px 8px">17:03</td><td style="padding: 14px 8px; font-weight: 700">8 h 03 min</td><td style="padding: 14px 8px"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Puntual</span></td><td style="padding: 14px 8px"><a href="#" style="color: #0B5A53; font-weight: 700">Solicitar corrección</a></td></tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":940}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

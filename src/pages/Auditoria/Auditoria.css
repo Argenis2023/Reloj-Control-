@@ -1,0 +1,15 @@
+.audit-filters {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.audit-filters__date { width: 150px; }
+.audit-filters__type { width: 230px; }
+
+.audit-table { min-width: 900px; }

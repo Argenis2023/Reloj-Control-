@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Marcación en computador</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: {{brand}}; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M6 22 L24 7 L42 22"></path>
+<path d="M11 19 V40 H37 V19"></path>
+<path d="M20 40 V28 H28 V40"></path>
+</svg>
+<div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div>
+<div style="font-size: 13px; opacity: 0.85">Control de asistencia</div>
+</div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#marcar" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Marcar</a>
+<a href="#historial" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Mi historial</a>
+<a href="#solicitudes" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Solicitudes</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="font-weight: 600">María Pérez</span>
+<button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button>
+</div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<section id="marcar" style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px">
+<div>
+<div style="font-size: 16px; font-weight: 600; color: #3F514D">Lunes 12 de octubre de 2026</div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 64px; line-height: 1.1; margin-top: 4px">15:20</div>
+</div>
+<span style="padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 16px; background: #D8F0E2; color: #0B5A31">En jornada</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<button type="button" disabled style="box-sizing: border-box; height: 112px; border-radius: 16px; padding: 16px 20px; text-align: left; border: 2px dashed #8DA19B; background: #F3F5F4; color: #4A5B57; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Entrada<span style="display: block; margin-top: 4px; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px">Ya registrada a las 08:01</span></button>
+<button type="button" style="box-sizing: border-box; height: 112px; border-radius: 16px; padding: 16px 20px; text-align: left; border: 0; background: {{brand}}; color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Salida a colación<span style="display: block; margin-top: 4px; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px">Inicio de colación</span></button>
+<button type="button" disabled style="box-sizing: border-box; height: 112px; border-radius: 16px; padding: 16px 20px; text-align: left; border: 2px dashed #8DA19B; background: #F3F5F4; color: #4A5B57; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Regreso de colación<span style="display: block; margin-top: 4px; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px">Disponible tras la salida a colación</span></button>
+<button type="button" style="box-sizing: border-box; height: 112px; border-radius: 16px; padding: 16px 20px; text-align: left; border: 0; background: {{brand}}; color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Salida<span style="display: block; margin-top: 4px; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px">Término de jornada</span></button>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3F514D">Si olvidaste una marca, puedes pedir su corrección desde <a href="#solicitudes" style="color: #0B5A53; font-weight: 700">Solicitudes</a>.</p>
+</section>
+
+<section id="historial" style="flex: 1 1 480px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+<div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 24px">Tus marcas de hoy</h2>
+<p style="margin: 6px 0 0; font-size: 15px; color: #3F514D">Datos de ejemplo para el prototipo.</p>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 16px">
+<thead>
+<tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 10px 8px; border-bottom: 2px solid #D5DEDB">Marca</th>
+<th style="padding: 10px 8px; border-bottom: 2px solid #D5DEDB">Hora</th>
+<th style="padding: 10px 8px; border-bottom: 2px solid #D5DEDB">Comprobante</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8">Entrada</td><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">08:01</td><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8">N° 000101</td></tr>
+<tr><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8">Salida a colación</td><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">13:02</td><td style="padding: 12px 8px; border-bottom: 1px solid #E4EAE8">N° 000102</td></tr>
+<tr><td style="padding: 12px 8px">Regreso de colación</td><td style="padding: 12px 8px; font-weight: 700">13:58</td><td style="padding: 12px 8px">N° 000103</td></tr>
+</tbody>
+</table>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<div style="flex: 1 1 140px; background: #F3F5F4; border-radius: 14px; padding: 14px 16px"><div style="font-size: 13px; font-weight: 600; color: #3F514D">Horas de hoy</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 24px; margin-top: 2px">6 h 23 min</div></div>
+<div style="flex: 1 1 140px; background: #F3F5F4; border-radius: 14px; padding: 14px 16px"><div style="font-size: 13px; font-weight: 600; color: #3F514D">Horas de la semana</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 24px; margin-top: 2px">6 h 23 min</div></div>
+</div>
+</section>
+
+<section id="solicitudes" style="flex: 1 1 100%; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Solicitudes</h2>
+<p style="margin: 6px 0 0; font-size: 15px; color: #3F514D">Corrección de marcas, permisos, vacaciones y horas extra. Sin solicitudes pendientes.</p>
+</div>
+<button type="button" style="height: 48px; padding: 0 24px; border-radius: 12px; border: 2px solid {{brand}}; background: #FFFFFF; color: #0B5A53; font-weight: 700; font-size: 16px">Nueva solicitud</button>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#0F6B5F"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { brand: this.props.brand ?? '#0F6B5F' };
+  }
+}
+</script>
+</body>
+</html>

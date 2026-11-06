@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Personal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 860px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Administración de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Panel</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Personal</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Aprobaciones</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Reportes</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Auditoría</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">Administrador</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Personal</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Administra las fichas de los trabajadores. Datos de ejemplo.</p>
+</div>
+<button type="button" style="height: 52px; padding: 0 28px; border-radius: 12px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 16px">Nuevo trabajador</button>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px">
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px"><label for="buscar" style="font-weight: 700; font-size: 14px">Buscar por nombre o RUT</label><input id="buscar" type="text" value="" style="height: 48px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="estado" style="font-weight: 700; font-size: 14px">Estado</label><select id="estado" style="height: 48px; width: 170px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF"><option>Activos</option><option>Inactivos</option><option>Todos</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="area" style="font-weight: 700; font-size: 14px">Área</label><select id="area" style="height: 48px; width: 190px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF"><option>Todas</option><option>Oficina central</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="rol" style="font-weight: 700; font-size: 14px">Rol</label><select id="rol" style="height: 48px; width: 190px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF"><option>Todos</option><option>Trabajador</option><option>Supervisor</option><option>Administrador</option></select></div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 8px 24px 16px; overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 820px">
+<thead><tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Trabajador</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Código</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Área</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Rol</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Horario</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Estado</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Acciones</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">María Pérez</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4821</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Trabajador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Juan Soto</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4822</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Trabajador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Camila Rojas</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4823</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Supervisor</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Diego Herrera</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4824</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Trabajador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Valentina Muñoz</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4825</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Administrador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Pablo Núñez</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">4826</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Trabajador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Activo</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #7A1A12; font-weight: 700">Desactivar</a></td></tr>
+<tr><td style="padding: 14px 8px; font-weight: 700">Sofía Araya</td><td style="padding: 14px 8px">4827</td><td style="padding: 14px 8px">Oficina central</td><td style="padding: 14px 8px">Trabajador</td><td style="padding: 14px 8px">Fijo, 08:00 a 17:00</td><td style="padding: 14px 8px"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #E1E8E5; color: #33433F">Inactivo</span></td><td style="padding: 14px 8px"><a href="#" style="color: #0B5A53; font-weight: 700; margin-right: 16px">Editar</a><a href="#" style="color: #0B5A53; font-weight: 700">Reactivar</a></td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-size: 14px; color: #3F514D">Desactivar a un trabajador conserva su historial de asistencia; las fichas no se eliminan.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

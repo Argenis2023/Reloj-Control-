@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Aprobaciones</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Administración de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Panel</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Personal</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Aprobaciones</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Reportes</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Auditoría</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">Administrador</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Aprobaciones</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Revisa las solicitudes de corrección, permisos y horas extra. Datos de ejemplo.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px" role="tablist">
+<span role="tab" aria-selected="true" style="padding: 10px 20px; border-radius: 999px; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 15px">Pendientes (3)</span>
+<span role="tab" aria-selected="false" style="padding: 10px 20px; border-radius: 999px; background: #FFFFFF; border: 1px solid #A9B8B3; font-weight: 600; font-size: 15px">Aprobadas</span>
+<span role="tab" aria-selected="false" style="padding: 10px 20px; border-radius: 999px; background: #FFFFFF; border: 1px solid #A9B8B3; font-weight: 600; font-size: 15px">Rechazadas</span>
+</div>
+
+<section style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 2 1 420px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px"><span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">María Pérez</span><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #E3F1EE; color: #0B3F38">Corrección de marca</span></div>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.5">Jueves 08/10/2026: la salida registrada fue 16:30 y la solicitada es 17:00.</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #3F514D">Motivo: olvidó marcar la salida porque salió a una gestión autorizada por la gerencia.</p>
+</div>
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px">
+<label for="c1" style="font-weight: 700; font-size: 14px">Comentario (opcional)</label>
+<input id="c1" type="text" value="" style="height: 46px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 15px">
+<div style="display: flex; gap: 10px"><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 15px">Aprobar</button><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 2px solid #7A1A12; background: #FFFFFF; color: #7A1A12; font-weight: 700; font-size: 15px">Rechazar</button></div>
+</div>
+</section>
+
+<section style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 2 1 420px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px"><span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Juan Soto</span><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FBE9C8; color: #6B4200">Permiso</span></div>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.5">Viernes 16/10/2026, de 15:00 a 17:00.</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #3F514D">Motivo: trámite personal.</p>
+</div>
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px">
+<label for="c2" style="font-weight: 700; font-size: 14px">Comentario (opcional)</label>
+<input id="c2" type="text" value="" style="height: 46px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 15px">
+<div style="display: flex; gap: 10px"><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 15px">Aprobar</button><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 2px solid #7A1A12; background: #FFFFFF; color: #7A1A12; font-weight: 700; font-size: 15px">Rechazar</button></div>
+</div>
+</section>
+
+<section style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<div style="flex: 2 1 420px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px"><span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px">Camila Rojas</span><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FDE3D0; color: #7A3300">Horas extra</span></div>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.5">Miércoles 14/10/2026: 2 horas después de las 17:00.</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #3F514D">Motivo: cierre de inventario.</p>
+</div>
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px">
+<label for="c3" style="font-weight: 700; font-size: 14px">Comentario (opcional)</label>
+<input id="c3" type="text" value="" style="height: 46px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 15px">
+<div style="display: flex; gap: 10px"><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 15px">Aprobar</button><button type="button" style="flex: 1; height: 48px; border-radius: 12px; border: 2px solid #7A1A12; background: #FFFFFF; color: #7A1A12; font-weight: 700; font-size: 15px">Rechazar</button></div>
+</div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

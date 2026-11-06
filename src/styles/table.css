@@ -1,0 +1,52 @@
+/* Tablas de datos compartidas por varias vistas */
+.table-wrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 8px 24px 16px;
+  overflow-x: auto;
+}
+
+.table-wrap--bare {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 14px 8px;
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.data-table td {
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--color-row);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table .strong {
+  font-weight: 700;
+}
+
+.data-table .muted-cell {
+  color: var(--color-muted);
+}
+
+.data-table .actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

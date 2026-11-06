@@ -1,0 +1,24 @@
+.personal__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.filters-bar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.filters-bar__search { flex: 1 1 260px; }
+.filters-bar__select { width: 190px; }
+
+.personal-table { min-width: 860px; }
+.personal__note { font-size: 14px; }

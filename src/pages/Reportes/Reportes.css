@@ -1,0 +1,32 @@
+.report-filters {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.report-filters__date { width: 150px; }
+.report-filters__select { width: 200px; }
+
+.report {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.report__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.report__title { font-size: 22px; }
+.report__exports { display: flex; flex-wrap: wrap; gap: 10px; }
+.report-table { min-width: 760px; }
+
+@media print {
+  .topbar, .report-filters, .report__exports { display: none; }
+}

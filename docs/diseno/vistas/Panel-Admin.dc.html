@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel del administrador</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 960px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Administración de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Panel</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Personal</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Aprobaciones</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Reportes</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Auditoría</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">Administrador</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Panel del día</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Lunes 12 de octubre de 2026, 15:20. Datos de ejemplo.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Presentes</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 40px; margin-top: 4px; color: #0B5A31">12</div><div style="font-size: 14px; color: #3F514D">de 13 trabajadores</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">En colación</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 40px; margin-top: 4px; color: #6B4200">2</div><div style="font-size: 14px; color: #3F514D">fuera de su puesto</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Atrasados</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 40px; margin-top: 4px; color: #7A3300">1</div><div style="font-size: 14px; color: #3F514D">entrada después de las 08:00</div></div>
+<div style="flex: 1 1 200px; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px"><div style="font-size: 14px; font-weight: 600; color: #3F514D">Ausentes</div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 40px; margin-top: 4px; color: #7A1A12">1</div><div style="font-size: 14px; color: #3F514D">sin marca ni permiso</div></div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section style="flex: 2 1 560px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px">Estado del personal</h2>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px">
+<thead><tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Trabajador</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Área</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Entrada</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Estado</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">María Pérez</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">08:01</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">En jornada</span></td></tr>
+<tr><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Juan Soto</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">08:17</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FBE9C8; color: #6B4200">Atrasado</span></td></tr>
+<tr><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Camila Rojas</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">07:59</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #E1E8E5; color: #33433F">En colación</span></td></tr>
+<tr><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Diego Herrera</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">08:00</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">En jornada</span></td></tr>
+<tr><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Valentina Muñoz</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">Oficina central</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8">08:03</td><td style="padding: 13px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #E1E8E5; color: #33433F">En colación</span></td></tr>
+<tr><td style="padding: 13px 8px; font-weight: 700">Pablo Núñez</td><td style="padding: 13px 8px">Oficina central</td><td style="padding: 13px 8px; color: #3F514D">Sin marca</td><td style="padding: 13px 8px"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #F9D9D6; color: #7A1A12">Ausente</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px">Alertas</h2>
+<div style="border-left: 6px solid #E8A33D; background: #FFF4DC; border-radius: 10px; padding: 12px 16px"><div style="font-weight: 700; font-size: 15px; color: #3A2500">Atrasos reiterados</div><div style="font-size: 14px; margin-top: 4px; color: #3A2500">Juan Soto acumula 4 atrasos en lo que va del mes.</div></div>
+<div style="border-left: 6px solid #C0392B; background: #FBE4E1; border-radius: 10px; padding: 12px 16px"><div style="font-weight: 700; font-size: 15px; color: #5C130C">Ausencia sin justificar</div><div style="font-size: 14px; margin-top: 4px; color: #5C130C">Pablo Núñez no registra marca ni permiso hoy.</div></div>
+<div style="border-left: 6px solid #0F6B5F; background: #E3F1EE; border-radius: 10px; padding: 12px 16px"><div style="font-weight: 700; font-size: 15px; color: #0B3F38">Solicitudes por revisar</div><div style="font-size: 14px; margin-top: 4px; color: #0B3F38">Hay 3 solicitudes pendientes de aprobación.</div></div>
+<button type="button" style="height: 48px; border-radius: 12px; border: 2px solid #0F6B5F; background: #FFFFFF; color: #0B5A53; font-weight: 700; font-size: 16px">Ir a aprobaciones</button>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

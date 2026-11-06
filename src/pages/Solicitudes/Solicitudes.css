@@ -1,0 +1,26 @@
+.solicitudes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.panel {
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel--form { flex: 1 1 460px; }
+.panel--list { flex: 1 1 520px; gap: 16px; }
+.panel__title { font-size: 22px; }
+
+.solicitudes__row { display: flex; flex-wrap: wrap; gap: 16px; }
+.grow-180 { flex: 1 1 180px; }
+.grow-140 { flex: 1 1 140px; }
+.solicitudes__actions { display: flex; flex-wrap: wrap; gap: 12px; }

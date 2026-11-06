@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Auditoría de cambios</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 820px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Administración de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Panel</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Personal</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Aprobaciones</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Reportes</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Auditoría</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">Administrador</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Auditoría de cambios</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Registro de las ediciones manuales de marcas y de los cambios en las fichas. Cada cambio conserva el valor original. Datos de ejemplo.</p>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="desde" style="font-weight: 700; font-size: 14px">Desde</label><input id="desde" type="text" value="01/10/2026" style="height: 48px; width: 150px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="hasta" style="font-weight: 700; font-size: 14px">Hasta</label><input id="hasta" type="text" value="12/10/2026" style="height: 48px; width: 150px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="tipo" style="font-weight: 700; font-size: 14px">Tipo de cambio</label><select id="tipo" style="height: 48px; width: 230px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF"><option>Todos</option><option>Edición de marca</option><option>Cambio de ficha</option><option>Solicitud resuelta</option></select></div>
+<button type="button" style="height: 48px; padding: 0 28px; border-radius: 10px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 16px">Filtrar</button>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 16px; padding: 8px 24px 16px; overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 900px">
+<thead><tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Fecha y hora</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Realizado por</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Acción</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Valor original</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Valor nuevo</th>
+<th style="padding: 14px 8px; border-bottom: 2px solid #D5DEDB">Motivo</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">12/10/2026 09:14</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Administrador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Edición de marca (Salida de Camila Rojas, 06/10)</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">16:50</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">17:00</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Solicitud de corrección aprobada</td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">09/10/2026 17:30</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Administrador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Cambio de ficha (Rol de Camila Rojas)</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Trabajador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Supervisor</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Nueva responsabilidad</td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">07/10/2026 10:02</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Administrador</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Edición de marca (Entrada de Diego Herrera, 07/10)</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Sin marca</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08:05</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">Falla del equipo de marcación</td></tr>
+<tr><td style="padding: 14px 8px; font-weight: 700">02/10/2026 16:45</td><td style="padding: 14px 8px">Administrador</td><td style="padding: 14px 8px">Solicitud resuelta (Permiso de María Pérez)</td><td style="padding: 14px 8px">Pendiente</td><td style="padding: 14px 8px">Aprobada</td><td style="padding: 14px 8px">Aprobado por la gerencia</td></tr>
+</tbody>
+</table>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.logo__subtitle {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.logo--large {
+  gap: 14px;
+}
+
+.logo--large .logo__title {
+  font-size: 22px;
+}
+
+.logo--large .logo__subtitle {
+  font-size: 14px;
+}

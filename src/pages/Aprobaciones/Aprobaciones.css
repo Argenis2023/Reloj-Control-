@@ -1,0 +1,35 @@
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tabs__tab {
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.tabs__tab--active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; font-weight: 700; }
+
+.approval {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.approval__info { flex: 2 1 420px; min-width: 0; }
+.approval__head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.approval__name { font-family: var(--font-heading); font-weight: 600; font-size: 20px; }
+.approval__detail { margin-top: 10px; font-size: 16px; line-height: 1.5; }
+.approval__reason { margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--color-muted); }
+
+.approval__actions { flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px; }
+.approval__comment .field__control { height: 46px; font-size: 15px; }
+.approval__buttons { display: flex; gap: 10px; }
+.approval__buttons .btn { flex: 1; padding: 0; }

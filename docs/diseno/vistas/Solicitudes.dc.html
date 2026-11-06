@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Solicitudes del trabajador</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #E8A33D;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 900px; box-sizing: border-box; font-family: 'Manrope', sans-serif; color: #16211F; background: #F3F5F4">
+
+<header style="background: #0F6B5F; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22 L24 7 L42 22"></path><path d="M11 19 V40 H37 V19"></path><path d="M20 40 V28 H28 V40"></path></svg>
+<div><div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 18px; line-height: 1.2">Hogar y Deco Ideas</div><div style="font-size: 13px; opacity: 0.85">Control de asistencia</div></div>
+</div>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px" aria-label="Principal">
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Marcar</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 10px 16px; border-radius: 10px">Mi historial</a>
+<a href="#" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.18)">Solicitudes</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px"><span style="font-weight: 600">María Pérez</span><button type="button" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: #FFFFFF; font-weight: 700; font-size: 15px">Cerrar sesión</button></div>
+</div>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+<div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 32px">Solicitudes</h1>
+<p style="margin: 8px 0 0; font-size: 16px; color: #3F514D">Pide la corrección de una marca, un permiso, vacaciones u horas extra, y revisa el estado de cada solicitud. Datos de ejemplo.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<section style="flex: 1 1 460px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px">Nueva solicitud</h2>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="tipo" style="font-weight: 700; font-size: 14px">Tipo de solicitud</label>
+<select id="tipo" style="height: 48px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF">
+<option>Corrección de marca</option><option>Permiso</option><option>Vacaciones</option><option>Horas extra</option>
+</select></div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="fecha" style="font-weight: 700; font-size: 14px">Fecha de la marca</label><input id="fecha" type="text" value="08/10/2026" style="height: 48px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="marca" style="font-weight: 700; font-size: 14px">Marca a corregir</label>
+<select id="marca" style="height: 48px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 12px; font-family: inherit; font-size: 16px; background: #FFFFFF"><option>Salida</option><option>Entrada</option><option>Salida a colación</option><option>Regreso de colación</option></select></div>
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 6px"><label for="hora" style="font-weight: 700; font-size: 14px">Hora correcta</label><input id="hora" type="text" value="17:00" style="height: 48px; box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 0 14px; font-family: inherit; font-size: 16px"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="motivo" style="font-weight: 700; font-size: 14px">Motivo</label>
+<textarea id="motivo" rows="4" style="box-sizing: border-box; border-radius: 10px; border: 1px solid #A9B8B3; padding: 12px 14px; font-family: inherit; font-size: 16px; resize: none">Olvidé marcar la salida porque salí a una gestión autorizada por la gerencia.</textarea></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" style="height: 52px; padding: 0 28px; border-radius: 12px; border: 0; background: #0F6B5F; color: #FFFFFF; font-weight: 700; font-size: 16px">Enviar solicitud</button>
+<button type="button" style="height: 52px; padding: 0 24px; border-radius: 12px; border: 1px solid #A9B8B3; background: #FFFFFF; color: #16211F; font-weight: 700; font-size: 16px">Cancelar</button>
+</div>
+</section>
+
+<section style="flex: 1 1 520px; min-width: 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #D5DEDB; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px">Mis solicitudes</h2>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px">
+<thead><tr style="text-align: left; color: #3F514D; font-size: 14px">
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Tipo</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Fecha</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Estado</th>
+<th style="padding: 12px 8px; border-bottom: 2px solid #D5DEDB">Comentario</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Corrección de marca</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">08/10/2026</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #FBE9C8; color: #6B4200">Pendiente</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; color: #3F514D">En revisión</td></tr>
+<tr><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; font-weight: 700">Permiso</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8">02/10/2026</td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #D8F0E2; color: #0B5A31">Aprobada</span></td><td style="padding: 14px 8px; border-bottom: 1px solid #E4EAE8; color: #3F514D">Aprobado por la gerencia</td></tr>
+<tr><td style="padding: 14px 8px; font-weight: 700">Horas extra</td><td style="padding: 14px 8px">25/09/2026</td><td style="padding: 14px 8px"><span style="padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; background: #F9D9D6; color: #7A1A12">Rechazada</span></td><td style="padding: 14px 8px; color: #3F514D">No estaban autorizadas</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

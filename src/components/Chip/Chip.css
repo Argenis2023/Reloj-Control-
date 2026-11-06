@@ -1,0 +1,23 @@
+.chip {
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.chip--sm {
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+.chip--lg {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.chip--green { background: var(--chip-green-bg); color: var(--chip-green-fg); }
+.chip--amber { background: var(--chip-amber-bg); color: var(--chip-amber-fg); }
+.chip--grey { background: var(--chip-grey-bg); color: var(--chip-grey-fg); }
+.chip--red { background: var(--chip-red-bg); color: var(--chip-red-fg); }
+.chip--orange { background: var(--chip-orange-bg); color: var(--chip-orange-fg); }
+.chip--teal { background: var(--chip-teal-bg); color: var(--chip-teal-fg); }

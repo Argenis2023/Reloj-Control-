@@ -1,0 +1,62 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login__brand {
+  flex: 1 1 420px;
+  padding: 64px;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.login__headline {
+  font-size: 44px;
+  line-height: 1.15;
+}
+
+.login__lead {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+
+.login__foot {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.login__form-side {
+  flex: 1 1 520px;
+  padding: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.login__title { font-size: 28px; }
+.login__hint { margin-top: 8px; font-size: 16px; color: var(--color-muted); }
+
+.login__card .field__control { height: 52px; border-radius: 12px; font-size: 18px; }
+.login__card .field__label { font-size: 15px; }
+.login__card .field__control:focus { border: 3px solid var(--color-primary); }
+
+.login__legal { font-size: 14px; line-height: 1.5; color: var(--color-muted); }
