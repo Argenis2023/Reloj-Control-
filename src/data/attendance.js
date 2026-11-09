@@ -34,8 +34,6 @@ export const STATUS_CHIP = {
 /** Marcas de ejemplo del día para la vista de computador. */
 export const SAMPLE_TODAY_MARKS = [
   { label: 'Entrada', time: '08:01', receipt: formatReceipt(101) },
-  { label: 'Salida a colación', time: '13:02', receipt: formatReceipt(102) },
-  { label: 'Regreso de colación', time: '13:58', receipt: formatReceipt(103) },
 ];
 
 /** Historial semanal de ejemplo (trabajador). */

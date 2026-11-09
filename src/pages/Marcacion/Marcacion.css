@@ -65,3 +65,4 @@
 
 .marcacion__warn { display: flex; flex-direction: column; gap: 12px; }
 .marcacion__warn-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.mini-stat__value--na { font-size: 16px; color: var(--color-muted); }

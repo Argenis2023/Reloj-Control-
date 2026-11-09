@@ -12,11 +12,11 @@ import './Marcacion.css';
 /** Marcación desde el computador: reloj, estado, cuatro marcas y resumen de horas. */
 export default function Marcacion() {
   const now = useClock();
-  // Estado inicial de ejemplo (trabajadora ficticia María Pérez): ya registró entrada,
-  // salida y regreso de colación, por lo que solo le corresponde marcar la salida.
-  const attendance = useAttendance({ 1: { status: 'back', marks: SAMPLE_TODAY_MARKS } }, 103);
+  // Estado inicial de ejemplo (trabajadora ficticia María Pérez): en jornada, con la
+  // entrada registrada a las 08:01. Le corresponden "Salida a colación" o "Salida".
+  const attendance = useAttendance({ 1: { status: 'in', marks: SAMPLE_TODAY_MARKS } }, 101);
 
-  let next = 104;
+  let next = 102;
   const marksToday = attendance.marks.map((m) => ({ ...m, receipt: m.receipt ?? formatReceipt(next++) }));
 
   function subLabel(t, ok) {
@@ -68,7 +68,7 @@ export default function Marcacion() {
       <section className="marcacion__card marcacion__today">
         <div>
           <h2 className="marcacion__h2">Tus marcas de hoy</h2>
-          <p className="muted marcacion__note">Datos de ejemplo para el prototipo.</p>
+          <p className="muted marcacion__note">Datos de ejemplo para el prototipo. Las horas se calcularán con la API de Cocreando.</p>
         </div>
         <div className="table-wrap table-wrap--bare">
           <table className="data-table data-table--compact">
@@ -83,8 +83,8 @@ export default function Marcacion() {
           </table>
         </div>
         <div className="marcacion__stats">
-          <div className="mini-stat"><div className="mini-stat__label">Horas de hoy</div><div className="mini-stat__value">6 h 23 min</div></div>
-          <div className="mini-stat"><div className="mini-stat__label">Horas de la semana</div><div className="mini-stat__value">6 h 23 min</div></div>
+          <div className="mini-stat"><div className="mini-stat__label">Horas de hoy</div><div className="mini-stat__value mini-stat__value--na">Con la API</div></div>
+          <div className="mini-stat"><div className="mini-stat__label">Horas de la semana</div><div className="mini-stat__value mini-stat__value--na">Con la API</div></div>
         </div>
       </section>
 

@@ -76,61 +76,64 @@ try {
   const pc = async () => { await page.goto(`${BASE}/trabajador/marcacion`); await page.waitForSelector('[data-mark="salida"]'); };
 
   await caso({
-    id: 'CP-01', titulo: 'Registrar la salida tras el regreso de colación (computador)', requisito: 'R02, R04, R05',
-    datos: 'Trabajadora ficticia María Pérez, con entrada 08:01, salida a colación 13:02 y regreso 13:58.',
-    pasos: '1. Abrir /trabajador/marcacion. 2. Verificar el estado. 3. Pulsar "Salida".',
-    esperado: 'El estado es "En jornada" y solo "Salida" aparece destacada. Al pulsarla se registra de inmediato, el estado pasa a "Fuera de jornada" y la tabla agrega la salida con el comprobante N° 000104.',
+    id: 'CP-01', titulo: 'Registrar la salida a colación (computador)', requisito: 'R03, R04',
+    datos: 'Trabajadora ficticia María Pérez, en jornada, con entrada registrada a las 08:01 y sin credenciales reales.',
+    pasos: '1. Abrir /trabajador/marcacion. 2. Verificar que el estado sea "En jornada" y que "Entrada" figure como ya registrada. 3. Pulsar "Salida a colación".',
+    esperado: 'El estado cambia a "En colación" y la marca se agrega a "Tus marcas de hoy" con su hora y el comprobante N° 000102.',
   }, async (p) => {
     await pc();
-    const ok = await p.locator('.mark-card--ok').allInnerTexts();
-    expect(ok.length === 1 && ok[0].startsWith('Salida\n'), `marcas destacadas: ${ok.join(' | ')}`);
-    await p.click('[data-mark="salida"]');
-    await p.getByText('Fuera de jornada').first().waitFor();
+    const ent = await p.locator('[data-mark="entrada"]').innerText();
+    expect(ent.includes('Ya registrada a las 08:01'), `entrada: ${ent}`);
+    await p.click('[data-mark="inicio"]');
+    await p.getByText('En colación').first().waitFor();
     const row = await p.locator('tbody tr').last().innerText();
-    expect(row.includes('Salida') && row.includes('000104'), `última fila: ${row}`);
-    return `Solo "Salida" estaba destacada. Tras pulsarla, el estado cambió a "Fuera de jornada" y se agregó la fila: ${row.replace(/\s+/g, ' ')}.`;
+    expect(row.includes('Salida a colación') && row.includes('000102'), `última fila: ${row}`);
+    return `"Entrada" figuraba como ya registrada a las 08:01. Al pulsar "Salida a colación", el estado cambió a "En colación" y se agregó la fila: ${row.replace(/\s+/g, ' ')}.`;
   }, page);
 
   await caso({
     id: 'CP-02', titulo: 'Coherencia del flujo de colación (computador)', requisito: 'R03, R04',
-    datos: 'Misma trabajadora ficticia, con la colación ya registrada.',
-    pasos: '1. Abrir /trabajador/marcacion. 2. Revisar los botones de colación.',
-    esperado: '"Salida a colación" y "Regreso de colación" aparecen atenuados e indican la hora en que ya se registraron (13:02 y 13:58). Regla: una sola colación por jornada.',
+    datos: 'Misma trabajadora ficticia.',
+    pasos: '1. Abrir /trabajador/marcacion. 2. Pulsar "Salida a colación". 3. Pulsar "Regreso de colación". 4. Revisar los botones.',
+    esperado: 'Tras el regreso, el estado vuelve a "En jornada"; "Salida a colación" y "Regreso de colación" aparecen atenuados con la hora en que se registraron, y solo "Salida" queda destacada. Regla: una sola colación por jornada.',
   }, async (p) => {
     await pc();
+    await p.click('[data-mark="inicio"]');
+    await p.getByText('En colación').first().waitFor();
+    await p.click('[data-mark="fin"]');
+    await p.getByText('En jornada').first().waitFor();
     const ini = await p.locator('[data-mark="inicio"]').innerText();
-    const fin = await p.locator('[data-mark="fin"]').innerText();
-    expect(ini.includes('Ya registrada a las 13:02'), `inicio: ${ini}`);
-    expect(fin.includes('Ya registrada a las 13:58'), `fin: ${fin}`);
-    expect(await p.locator('[data-mark="inicio"].mark-card--off').count() === 1, 'inicio no atenuado');
-    return `Salida a colación: "${ini.replace(/\n/g, ' / ')}". Regreso de colación: "${fin.replace(/\n/g, ' / ')}". Ambos atenuados.`;
+    const ok = await p.locator('.mark-card--ok').allInnerTexts();
+    expect(ini.includes('Ya registrada a las'), `inicio: ${ini}`);
+    expect(ok.length === 1 && ok[0].startsWith('Salida\n'), `marcas destacadas: ${ok.join(' | ')}`);
+    return `Tras el regreso, el estado volvió a "En jornada". "Salida a colación" quedó atenuada ("${ini.split('\n')[1]}") y solo "Salida" quedó destacada.`;
   }, page);
 
   await caso({
     id: 'CP-03', titulo: 'Marca que no corresponde, sin confirmar (computador)', requisito: 'R07 (caso normal)',
-    datos: 'Misma trabajadora ficticia, en jornada con la colación registrada.',
-    pasos: '1. Pulsar "Salida a colación". 2. Leer el aviso. 3. Pulsar "Volver sin registrar".',
+    datos: 'Misma trabajadora ficticia, en jornada antes de la colación.',
+    pasos: '1. Pulsar "Regreso de colación" (no corresponde, porque no ha salido a colación). 2. Leer el aviso. 3. Pulsar "Volver sin registrar".',
     esperado: 'Aparece el aviso "Esta marca no corresponde". Al volver, no se agrega ninguna marca y el estado sigue en "En jornada".',
   }, async (p) => {
     await pc();
     const before = await p.locator('tbody tr').count();
-    await p.click('[data-mark="inicio"]');
+    await p.click('[data-mark="fin"]');
     await p.getByText('Esta marca no corresponde').waitFor();
     await p.getByRole('button', { name: 'Volver sin registrar' }).click();
     const after = await p.locator('tbody tr').count();
     expect(after === before, `filas antes ${before}, después ${after}`);
     expect(await p.getByText('Esta marca no corresponde').count() === 0, 'el aviso sigue visible');
-    return `Se mostró el aviso. Al volver, la tabla mantuvo ${after} marcas y no se registró nada.`;
+    return `Se mostró el aviso. Al volver, la tabla mantuvo ${after} marca(s) y no se registró nada.`;
   }, page);
 
   await caso({
     id: 'CP-04', titulo: 'Marca que no corresponde, confirmada (computador)', requisito: 'R07 (caso excepcional)',
     datos: 'Misma trabajadora ficticia.',
-    pasos: '1. Pulsar "Salida a colación". 2. Pulsar "Registrar con observación".',
+    pasos: '1. Pulsar "Regreso de colación". 2. Pulsar "Registrar con observación".',
     esperado: 'La marca se registra con la etiqueta "(con observación)" para revisión del supervisor.',
   }, async (p) => {
     await pc();
-    await p.click('[data-mark="inicio"]');
+    await p.click('[data-mark="fin"]');
     await p.getByRole('button', { name: 'Registrar con observación' }).click();
     const row = await p.locator('tbody tr').last().innerText();
     expect(row.includes('(con observación)'), `última fila: ${row}`);
