@@ -1,8 +1,8 @@
 import { formatReceipt } from '../../utils';
 
 /** Pantalla 4: comprobante de la marca y cierre automático. */
-export default function DoneScreen({ last, countdown, onFinish }) {
-  if (!last) return null;
+export default function DoneScreen({ worker, last, countdown, onFinish }) {
+  if (!last || !worker) return null;
   return (
     <div className="screen screen--center screen--middle">
       <div className="done-icon">
@@ -12,10 +12,11 @@ export default function DoneScreen({ last, countdown, onFinish }) {
       </div>
       <h1 className="done-title">{last.title}</h1>
       <dl className="receipt">
-        <div><dt>Trabajador</dt><dd>María Pérez</dd></div>
+        <div><dt>Trabajador</dt><dd>{worker.name}</dd></div>
         <div><dt>Fecha</dt><dd>{last.date}</dd></div>
         <div><dt>Hora</dt><dd>{last.time}</dd></div>
         <div><dt>Comprobante</dt><dd>{formatReceipt(last.receipt)}</dd></div>
+        {last.flagged && <div><dt>Observación</dt><dd>Marca fuera de secuencia, para revisión</dd></div>}
       </dl>
       <div className="done-countdown">Esta pantalla se cerrará en {countdown} s.</div>
       <button type="button" className="done-btn" onClick={onFinish}>Listo</button>

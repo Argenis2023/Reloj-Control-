@@ -11,12 +11,12 @@ export default function WarnScreen({ pending, status, onBack, onConfirm }) {
         </svg>
         <h1 className="warn-card__title">Esta marca no corresponde</h1>
         <p className="warn-card__text">
-          Registraste "{pending?.label}" pero tu estado actual es "{STATUS_LABEL[status]}". Revisa la marca antes de continuar; si la registras, quedará anotada con este aviso.
+          Elegiste "{pending?.label}", pero tu estado actual es "{STATUS_LABEL[status]}". Si la registras, quedará con una observación para revisión del supervisor.
         </p>
       </div>
       <div className="warn-actions">
-        <button type="button" className="warn-actions__back" onClick={onBack}>Volver y corregir</button>
-        <button type="button" className="warn-actions__confirm" onClick={onConfirm}>Registrar de todos modos</button>
+        <button type="button" className="warn-actions__back" onClick={onBack}>Volver sin registrar</button>
+        <button type="button" className="warn-actions__confirm" onClick={onConfirm}>Registrar con observación</button>
       </div>
     </div>
   );

@@ -1,24 +1,29 @@
 import { Link } from 'react-router-dom';
 import Chip from '../../components/Chip/Chip';
 import Button from '../../components/Button/Button';
+import Alert from '../../components/Alert/Alert';
 import useAttendance from '../../hooks/useAttendance';
 import useClock from '../../hooks/useClock';
 import { SAMPLE_TODAY_MARKS, STATUS_CHIP, STATUS_LABEL } from '../../data/attendance';
-import { formatDateLong, formatHHMM } from '../../utils';
+import { formatDateLong, formatHHMM, formatReceipt } from '../../utils';
 import '../../styles/table.css';
 import './Marcacion.css';
 
 /** Marcación desde el computador: reloj, estado, cuatro marcas y resumen de horas. */
 export default function Marcacion() {
   const now = useClock();
-  // Estado inicial de ejemplo: el trabajador ya volvió de colación.
-  const attendance = useAttendance('in', [], 103);
-  const entered = SAMPLE_TODAY_MARKS[0].time;
+  // Estado inicial de ejemplo (trabajadora ficticia María Pérez): ya registró entrada,
+  // salida y regreso de colación, por lo que solo le corresponde marcar la salida.
+  const attendance = useAttendance({ 1: { status: 'back', marks: SAMPLE_TODAY_MARKS } }, 103);
 
-  const marksToday = [
-    ...SAMPLE_TODAY_MARKS,
-    ...attendance.marks.map((m, i) => ({ ...m, receipt: `N° ${String(104 + i).padStart(6, '0')}` })),
-  ];
+  let next = 104;
+  const marksToday = attendance.marks.map((m) => ({ ...m, receipt: m.receipt ?? formatReceipt(next++) }));
+
+  function subLabel(t, ok) {
+    if (ok) return t.sub;
+    const done = attendance.marks.filter((m) => m.label === t.label).pop();
+    return done ? `Ya registrada a las ${done.time}` : 'No corresponde a tu estado actual';
+  }
 
   return (
     <main className="page marcacion">
@@ -35,15 +40,25 @@ export default function Marcacion() {
           {attendance.types.map((t) => {
             const ok = attendance.isAllowed(t);
             return (
-              <button key={t.key} type="button" disabled={!ok} onClick={() => attendance.request(t)} className={`mark-card ${ok ? 'mark-card--ok' : 'mark-card--off'}`}>
+              <button key={t.key} data-mark={t.key} type="button" onClick={() => attendance.request(t)} className={`mark-card ${ok ? 'mark-card--ok' : 'mark-card--off'}`}>
                 {t.label}
-                <span className="mark-card__sub">
-                  {ok ? t.sub : t.key === 'entrada' ? `Ya registrada a las ${entered}` : 'Disponible tras la marca anterior'}
-                </span>
+                <span className="mark-card__sub">{subLabel(t, ok)}</span>
               </button>
             );
           })}
         </div>
+
+        {attendance.pending && (
+          <div className="marcacion__warn" role="alert">
+            <Alert tone="amber" title="Esta marca no corresponde">
+              Elegiste "{attendance.pending.label}", pero tu estado actual es "{STATUS_LABEL[attendance.status]}". Si la registras, quedará con una observación para revisión del supervisor.
+            </Alert>
+            <div className="marcacion__warn-actions">
+              <Button variant="outline" onClick={attendance.cancelPending}>Volver sin registrar</Button>
+              <Button onClick={attendance.confirmPending}>Registrar con observación</Button>
+            </div>
+          </div>
+        )}
 
         <p className="marcacion__help">
           Si olvidaste una marca, puedes pedir su corrección desde <Link to="/trabajador/solicitudes">Solicitudes</Link>.
@@ -62,7 +77,7 @@ export default function Marcacion() {
             </thead>
             <tbody>
               {marksToday.map((m, i) => (
-                <tr key={i}><td>{m.label}</td><td className="strong">{m.time}</td><td>{m.receipt}</td></tr>
+                <tr key={i}><td>{m.label}{m.flagged ? ' (con observación)' : ''}</td><td className="strong">{m.time}</td><td>{m.receipt}</td></tr>
               ))}
             </tbody>
           </table>

@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar/TopBar';
 const LINKS = [
   { to: '/admin/panel', label: 'Panel' },
   { to: '/admin/personal', label: 'Personal' },
+  { to: '/admin/horarios', label: 'Horarios' },
   { to: '/admin/aprobaciones', label: 'Aprobaciones' },
   { to: '/admin/reportes', label: 'Reportes' },
   { to: '/admin/auditoria', label: 'Auditoría' },

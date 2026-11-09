@@ -60,3 +60,8 @@
 .mini-stat { flex: 1 1 140px; background: var(--color-bg); border-radius: var(--radius-md); padding: 14px 16px; }
 .mini-stat__label { font-size: 13px; font-weight: 600; color: var(--color-muted); }
 .mini-stat__value { font-family: var(--font-heading); font-weight: 600; font-size: 24px; margin-top: 2px; }
+
+.mark-card--off { cursor: pointer; }
+
+.marcacion__warn { display: flex; flex-direction: column; gap: 12px; }
+.marcacion__warn-actions { display: flex; flex-wrap: wrap; gap: 12px; }

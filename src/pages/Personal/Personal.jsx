@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Chip from '../../components/Chip/Chip';
 import Button from '../../components/Button/Button';
 import Field from '../../components/Field/Field';
-import { AREAS, ROLES, SCHEDULE_TEXT, WORKERS } from '../../data/workers';
+import { AREAS, ROLES, WORKERS } from '../../data/workers';
+import { ASSIGNMENTS, INDIVIDUAL, SCHEDULE_GROUPS } from '../../data/schedules';
 import '../../styles/table.css';
 import './Personal.css';
 
@@ -62,7 +63,7 @@ export default function Personal() {
                 <td>{w.code}</td>
                 <td>{w.area}</td>
                 <td>{w.role}</td>
-                <td>{SCHEDULE_TEXT}</td>
+                <td>{SCHEDULE_GROUPS.find((g) => g.id === ASSIGNMENTS[w.id])?.name ?? INDIVIDUAL}</td>
                 <td><Chip tone={w.active ? 'green' : 'grey'}>{w.active ? 'Activo' : 'Inactivo'}</Chip></td>
                 <td>
                   <div className="actions">

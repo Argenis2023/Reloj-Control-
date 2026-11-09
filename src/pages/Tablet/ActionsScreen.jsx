@@ -9,13 +9,13 @@ const ICONS = {
 };
 
 /** Pantalla 2: las cuatro marcas posibles; solo se destacan las que corresponden al estado. */
-export default function ActionsScreen({ attendance, onMark, onCancel }) {
+export default function ActionsScreen({ worker, attendance, onMark, onCancel }) {
   const recent = attendance.marks.slice(-4).reverse();
   return (
     <div className="screen">
       <div className="screen__head">
         <div>
-          <h1 className="screen__title">Hola, María Pérez</h1>
+          <h1 className="screen__title">Hola, {worker?.name}</h1>
           <p className="screen__subtitle">Elige la marca que quieres registrar.</p>
         </div>
         <Chip tone={STATUS_CHIP[attendance.status]} size="lg">{STATUS_LABEL[attendance.status]}</Chip>
@@ -23,7 +23,7 @@ export default function ActionsScreen({ attendance, onMark, onCancel }) {
 
       <div className="mark-grid">
         {attendance.types.map((t) => (
-          <button key={t.key} type="button" onClick={() => onMark(t)} className={`mark-btn ${attendance.isAllowed(t) ? 'mark-btn--ok' : 'mark-btn--off'}`}>
+          <button key={t.key} data-mark={t.key} type="button" onClick={() => onMark(t)} className={`mark-btn ${attendance.isAllowed(t) ? 'mark-btn--ok' : 'mark-btn--off'}`}>
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d={ICONS[t.key]} />
             </svg>
@@ -42,7 +42,7 @@ export default function ActionsScreen({ attendance, onMark, onCancel }) {
         ) : (
           <ul className="today-box__list">
             {recent.map((m, i) => (
-              <li key={i}><span>{m.label}</span><span className="today-box__time">{m.time}</span></li>
+              <li key={i}><span>{m.label}{m.flagged ? ' (con observación)' : ''}</span><span className="today-box__time">{m.time}</span></li>
             ))}
           </ul>
         )}

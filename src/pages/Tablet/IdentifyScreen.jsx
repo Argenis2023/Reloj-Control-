@@ -3,7 +3,7 @@ import { useState } from 'react';
 const DIGITS = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 /** Pantalla 1: código personal y PIN de 4 dígitos con teclado grande. */
-export default function IdentifyScreen({ credentials, onChange, onSubmit }) {
+export default function IdentifyScreen({ credentials, onChange, onSubmit, error }) {
   const [focus, setFocus] = useState('code');
   const { code, pin } = credentials;
   const ready = code.length === 4 && pin.length === 4;
@@ -60,6 +60,8 @@ export default function IdentifyScreen({ credentials, onChange, onSubmit }) {
         <button type="button" className="keypad__key" aria-label="0" onClick={() => press('0')}>0</button>
         <button type="button" className="keypad__key keypad__key--text" aria-label="Limpiar todo" onClick={clear}>Limpiar</button>
       </div>
+
+      {error && <p className="id-error" role="alert">{error}</p>}
 
       <button type="button" className="submit-btn" disabled={!ready} onClick={onSubmit}>Continuar</button>
     </div>

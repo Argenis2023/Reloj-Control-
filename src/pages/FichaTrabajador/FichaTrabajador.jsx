@@ -4,16 +4,18 @@ import Chip from '../../components/Chip/Chip';
 import Button from '../../components/Button/Button';
 import Field from '../../components/Field/Field';
 import { AREAS, ROLES, WORKERS } from '../../data/workers';
+import { ASSIGNMENTS, INDIVIDUAL, SCHEDULE_GROUPS, describeGroup } from '../../data/schedules';
 import './FichaTrabajador.css';
 
-const BLANK = { name: '', rut: '', email: '', phone: '', area: AREAS[0], position: '', role: ROLES[0], schedule: 'Fijo, lunes a viernes de 08:00 a 17:00, con colación', code: '', active: true };
+const BLANK = { name: '', rut: '', email: '', phone: '', area: AREAS[0], position: '', role: ROLES[0], group: SCHEDULE_GROUPS[0].name, schedule: '', code: '', active: true };
 
 /** Ficha individual: datos personales, laborales y acceso al sistema. Sirve para crear y editar. */
 export default function FichaTrabajador() {
   const { id } = useParams();
   const navigate = useNavigate();
   const worker = WORKERS.find((w) => String(w.id) === id);
-  const [form, setForm] = useState(worker ? { ...BLANK, name: worker.name, area: worker.area, role: worker.role, code: worker.code, active: worker.active } : BLANK);
+  const [form, setForm] = useState(worker ? { ...BLANK, name: worker.name, area: worker.area, role: worker.role, code: worker.code, active: worker.active, group: SCHEDULE_GROUPS.find((g) => g.id === ASSIGNMENTS[worker.id])?.name ?? INDIVIDUAL } : BLANK);
+  const group = SCHEDULE_GROUPS.find((g) => g.name === form.group);
   const [pinReset, setPinReset] = useState(false);
 
   const set = (key) => (e) => setForm({ ...form, [key]: e.target.value });
@@ -47,7 +49,10 @@ export default function FichaTrabajador() {
               <Field id="cargo" label="Cargo" placeholder="Cargo del trabajador" value={form.position} onChange={set('position')} className="ficha__grow" />
               <Field id="rol" as="select" label="Rol en el sistema" options={ROLES} value={form.role} onChange={set('role')} className="ficha__grow" />
             </div>
-            <Field id="horario" label="Horario" value={form.schedule} onChange={set('schedule')} />
+            <Field id="horario" as="select" label="Horario" options={[...SCHEDULE_GROUPS.map((g) => g.name), INDIVIDUAL]} value={form.group} onChange={set('group')}>
+              {group && <span className="muted">{describeGroup(group)}</span>}
+            </Field>
+            {!group && <Field id="horario-ind" label="Horario individual" placeholder="Ej.: lunes a jueves, 09:00 a 18:00, colación de 60 min" value={form.schedule} onChange={set('schedule')} />}
           </section>
         </div>
 

@@ -1,0 +1,11 @@
+.horarios { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.horarios__card { flex: 1 1 480px; min-width: 0; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+.horarios__h2 { font-size: 22px; }
+.horarios__h3 { font-size: 18px; }
+.horarios__form { display: flex; flex-direction: column; gap: 14px; border-top: 1px solid var(--color-border); padding-top: 18px; }
+.horarios__row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.horarios__grow { flex: 1 1 200px; }
+.horarios__days { display: flex; flex-wrap: wrap; gap: 12px; border: 0; padding: 0; margin: 0; }
+.horarios__day { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.horarios__error { margin: 0; color: #8a1c1c; font-weight: 600; }
+.horarios__note { font-size: 14px; }

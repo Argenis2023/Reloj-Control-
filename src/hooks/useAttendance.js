@@ -2,44 +2,66 @@ import { useState } from 'react';
 import { MARK_TYPES } from '../data/attendance';
 import { formatDateLong, formatHHMM } from '../utils';
 
+const isAllowedFor = (status, type) => type.from.includes(status);
+
 /**
  * Máquina de estados de la marcación (compartida por la tablet y el computador).
  * - Si la marca corresponde al estado actual, se registra de inmediato.
- * - Si no corresponde, queda "pending" para mostrar el aviso y pedir confirmación.
- * En el sistema real, record() debe llamar a la API de Cocreando.
+ * - Si no corresponde (regla R07), queda "pending": se muestra un aviso y solo se
+ *   registra si el trabajador confirma, marcada con una observación.
+ * El estado se guarda por trabajador, para que en la tablet compartida cada persona
+ * opere solo con su propia identidad.
+ * En el sistema real, record() debe llamar al endpoint de marcación de la API de Cocreando.
  */
-export default function useAttendance(initialStatus = 'out', initialMarks = [], firstReceipt = 123) {
-  const [status, setStatus] = useState(initialStatus);
-  const [marks, setMarks] = useState(initialMarks);
+export default function useAttendance(initial = {}, firstReceipt = 123) {
+  // initial: { [workerId]: { status, marks } }
+  const [byWorker, setByWorker] = useState(initial);
+  const [workerId, setWorkerId] = useState(Object.keys(initial)[0] ?? null);
   const [receipt, setReceipt] = useState(firstReceipt);
   const [pending, setPending] = useState(null);
   const [last, setLast] = useState(null);
 
-  function record(type) {
+  const current = byWorker[workerId] ?? { status: 'out', marks: [] };
+
+  function record(type, flagged = false) {
     const n = receipt + 1;
     const now = Date.now();
     const time = formatHHMM(now);
-    setStatus(type.next);
+    setByWorker((all) => {
+      const prev = all[workerId] ?? { status: 'out', marks: [] };
+      return { ...all, [workerId]: { status: type.next, marks: [...prev.marks, { label: type.label, time, flagged }] } };
+    });
     setPending(null);
-    setMarks((m) => [...m, { label: type.label, time }]);
     setReceipt(n);
-    setLast({ title: type.done, time, date: formatDateLong(now), receipt: n });
+    setLast({ title: type.done, time, date: formatDateLong(now), receipt: n, flagged });
   }
 
   function request(type) {
-    if (type.from === status) record(type);
+    if (isAllowedFor(current.status, type)) record(type);
     else setPending(type);
   }
 
   return {
-    status,
-    marks,
+    workerId,
+    status: current.status,
+    marks: current.marks,
     pending,
     last,
     types: MARK_TYPES,
-    isAllowed: (type) => type.from === status,
+    isAllowed: (type) => isAllowedFor(current.status, type),
     request,
-    confirmPending: () => pending && record(pending),
+    confirmPending: () => pending && record(pending, true),
     cancelPending: () => setPending(null),
+    // Cambia la identidad activa y descarta cualquier estado transitorio de la persona anterior.
+    selectWorker: (id) => {
+      setWorkerId(id);
+      setPending(null);
+      setLast(null);
+    },
+    clearWorker: () => {
+      setWorkerId(null);
+      setPending(null);
+      setLast(null);
+    },
   };
 }

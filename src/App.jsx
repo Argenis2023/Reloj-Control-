@@ -13,6 +13,7 @@ import FichaTrabajador from './pages/FichaTrabajador/FichaTrabajador';
 import Aprobaciones from './pages/Aprobaciones/Aprobaciones';
 import Reportes from './pages/Reportes/Reportes';
 import Auditoria from './pages/Auditoria/Auditoria';
+import Horarios from './pages/Horarios/Horarios';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="panel" element={<Panel />} />
         <Route path="personal" element={<Personal />} />
         <Route path="personal/:id" element={<FichaTrabajador />} />
+        <Route path="horarios" element={<Horarios />} />
         <Route path="aprobaciones" element={<Aprobaciones />} />
         <Route path="reportes" element={<Reportes />} />
         <Route path="auditoria" element={<Auditoria />} />

@@ -71,3 +71,15 @@ Para aplicar la imagen oficial de la empresa basta con cambiar esas variables y 
 - Si el sistema debe cumplir los requisitos de la Dirección del Trabajo para sistemas electrónicos de asistencia (art. 33 del Código del Trabajo).
 - Formato de la API y método de inicio de sesión de Cocreando (hoy los datos están en `src/data/` y la lógica de marcación en `src/hooks/useAttendance.js`).
 - Logotipo y colores oficiales.
+
+## Pruebas funcionales
+
+Las pruebas se ejecutan sobre el frontend con datos simulados. **No acreditan la integración con el backend de Cocreando.**
+
+```bash
+npm install
+npx playwright install chromium   # solo la primera vez
+npm run pruebas
+```
+
+Cada ejecución guarda en `pruebas/resultados/<fecha-hora>/` un informe (`resultados.md` y `resultados.json`) con fecha, versión (commit), entorno, resultado esperado, resultado obtenido, veredicto y una captura por caso. Los casos que dependen del backend quedan registrados como pendientes.

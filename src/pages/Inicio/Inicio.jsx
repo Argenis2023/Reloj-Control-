@@ -22,6 +22,7 @@ const GROUPS = [
       { to: '/admin/panel', label: 'Panel del día' },
       { to: '/admin/personal', label: 'Gestión del personal' },
       { to: '/admin/personal/1', label: 'Ficha del trabajador' },
+      { to: '/admin/horarios', label: 'Horarios' },
       { to: '/admin/aprobaciones', label: 'Aprobaciones' },
       { to: '/admin/reportes', label: 'Reportes' },
       { to: '/admin/auditoria', label: 'Auditoría de cambios' },

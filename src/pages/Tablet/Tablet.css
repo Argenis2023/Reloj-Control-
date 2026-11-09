@@ -248,3 +248,5 @@
   font-weight: 600;
   font-size: 21px;
 }
+
+.id-error { margin: 0; padding: 12px 16px; border-radius: 12px; background: #fdecea; color: #8a1c1c; font-weight: 600; }
