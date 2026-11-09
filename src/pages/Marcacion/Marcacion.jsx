@@ -22,7 +22,8 @@ export default function Marcacion() {
   function subLabel(t, ok) {
     if (ok) return t.sub;
     const done = attendance.marks.filter((m) => m.label === t.label).pop();
-    return done ? `Ya registrada a las ${done.time}` : 'No corresponde a tu estado actual';
+    if (done) return `Ya registrada a las ${done.time}`;
+    return t.key === 'fin' ? 'Disponible tras la salida a colación' : 'No corresponde a tu estado actual';
   }
 
   return (
